@@ -41,7 +41,7 @@ The log transformation `Log1pSalary = log(1 + SalaryNormalized)` is used to stab
 
 ## Installation
 
-### 1. Clone the repository
+### Clone the repository
 ```bash
 git clone https://github.com/<your-username>/salary-prediction-nlp.git
 cd salary-prediction-nlp
