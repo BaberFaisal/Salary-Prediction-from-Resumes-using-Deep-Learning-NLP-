@@ -1,7 +1,7 @@
 # Salary Prediction from Resumes using Deep Learning (NLP)
 
 This repository contains an implementation of a **Natural Language Processing (NLP)** and **Deep Learning** pipeline for predicting job salaries based on resumes and job descriptions.  
-The project was originally developed as part of the **“Large Scale Text Analysis with Deep Learning”** assignment, inspired by coursework from [Yandex Data School](https://github.com/yandexdataschool/nlp_course).
+
 
 ---
 
@@ -39,9 +39,4 @@ The log transformation `Log1pSalary = log(1 + SalaryNormalized)` is used to stab
 
 ---
 
-## Installation
 
-### Clone the repository
-```bash
-git clone https://github.com/<your-username>/salary-prediction-nlp.git
-cd salary-prediction-nlp
