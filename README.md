@@ -32,17 +32,4 @@ Salary data is famously "fat-tailed." To ensure effective optimization using MSE
 ### 3. Model Explainability
 We implemented a perturbation-based explanation method. By systematically dropping individual tokens from job titles and descriptions, we measured the "importance" of each word to the final salary prediction.
 
-## Installation & Usage
 
-1. **Clone the repo:**
-   ```bash
-   git clone https://github.com/your-username/salary-prediction.git
-   ```
-2. **Install requirements:**
-   ```bash
-   pip install torch nltk pandas numpy scikit-learn
-   ```
-3. **Data:** Download the Adzuna dataset (Train_rev1) and ensure it is in the project directory.
-
-##  Credits
-This project is based on a seminar from the Yandex Data School NLP course, originally developed by [Oleg Vasilev](https://github.com/Omrigan/).
