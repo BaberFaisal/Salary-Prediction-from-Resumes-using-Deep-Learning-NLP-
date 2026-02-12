@@ -1,42 +1,48 @@
-# Salary Prediction from Resumes using Deep Learning (NLP)
+ Deep Learning for Large-Scale Salary Prediction
 
-This repository contains an implementation of a **Natural Language Processing (NLP)** and **Deep Learning** pipeline for predicting job salaries based on resumes and job descriptions.  
+This repository contains a deep learning project aimed at predicting job salaries based on resumes and job descriptions using a multi-modal neural network architecture.
 
+[Image of neural network architecture for text and categorical data fusion]
 
----
+## 📊 Results Summary
 
-## Project Overview
+The model was trained to minimize Mean Squared Error (MSE) on the log-transformed salary. Below are the performance metrics recorded during the training of the final architecture:
 
-The goal of this project is to predict the **log-transformed normalized salary (`Log1pSalary`)** of job postings using both **textual** and **categorical** data features.  
-Key text features include the **job title** and **full job description**, while categorical features include the company name, contract type, and location.
+| Epoch | Validation MSE | Validation MAE |
+|-------|----------------|----------------|
+| 0     | 0.14216        | 0.28792        |
+| 1     | 0.12233        | 0.26559        |
+| 2     | 0.10758        | 0.24844        |
+| 3     | 0.10229        | 0.24108        |
+| 4     | 0.09672        | 0.23437        |
 
-The project demonstrates:
-- NLP preprocessing (tokenization, vocabulary creation)
-- Feature engineering for text and categorical data
-- Neural network design and training using **PyTorch**
-- Model evaluation and visualization
-- Model interpretability via token-level contribution analysis
+## 🚀 Key Methodology
 
----
+### 1. Multi-Modal Architecture
+The model processes three distinct types of input features:
+- **Job Title:** Processed via an embedding layer and global average pooling.
+- **Job Description:** Processed via a separate embedding branch.
+- **Categorical Data:** (Category, Company, Location, etc.) One-hot encoded and projected through a linear layer.
 
-## Dataset
+The features from these branches are concatenated and passed through a Multi-Layer Perceptron (MLP) with **Dropout (0.2)** to prevent overfitting.
 
-The dataset used is from the **Kaggle Job Salary Prediction** competition:
-🔗 [https://www.kaggle.com/c/job-salary-prediction/data](https://www.kaggle.com/c/job-salary-prediction/data)
+### 2. Handling Target Distribution
+Salary data is famously "fat-tailed." To ensure effective optimization using MSE, we predicted the **Log1pSalary** instead of the raw dollar amount.
 
-**Main file:** `Train_rev1.zip`
+### 3. Model Explainability
+We implemented a perturbation-based explanation method. By systematically dropping individual tokens from job titles and descriptions, we measured the "importance" of each word to the final salary prediction.
 
-Each record contains:
-- `Title`: Job title  
-- `FullDescription`: Complete job posting text  
-- `Category`: Job category  
-- `Company`: Company name  
-- `LocationNormalized`: Job location  
-- `ContractType` and `ContractTime`: Type and duration  
-- `SalaryNormalized`: Target variable (normalized salary)
+## 🛠️ Installation & Usage
 
-The log transformation `Log1pSalary = log(1 + SalaryNormalized)` is used to stabilize variance and handle skewness.
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/your-username/salary-prediction.git
+   ```
+2. **Install requirements:**
+   ```bash
+   pip install torch nltk pandas numpy scikit-learn
+   ```
+3. **Data:** Download the Adzuna dataset (Train_rev1) and ensure it is in the project directory.
 
----
-
-
+## 📜 Credits
+This project is based on a seminar from the Yandex Data School NLP course, originally developed by [Oleg Vasilev](https://github.com/Omrigan/).
