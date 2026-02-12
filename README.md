@@ -1,10 +1,10 @@
- Deep Learning for Large-Scale Salary Prediction
+## Deep Learning for Large-Scale Salary Prediction
 
 This repository contains a deep learning project aimed at predicting job salaries based on resumes and job descriptions using a multi-modal neural network architecture.
 
-[Image of neural network architecture for text and categorical data fusion]
 
-## 📊 Results Summary
+
+##  Results Summary
 
 The model was trained to minimize Mean Squared Error (MSE) on the log-transformed salary. Below are the performance metrics recorded during the training of the final architecture:
 
@@ -16,7 +16,7 @@ The model was trained to minimize Mean Squared Error (MSE) on the log-transforme
 | 3     | 0.10229        | 0.24108        |
 | 4     | 0.09672        | 0.23437        |
 
-## 🚀 Key Methodology
+##  Key Methodology
 
 ### 1. Multi-Modal Architecture
 The model processes three distinct types of input features:
@@ -32,7 +32,7 @@ Salary data is famously "fat-tailed." To ensure effective optimization using MSE
 ### 3. Model Explainability
 We implemented a perturbation-based explanation method. By systematically dropping individual tokens from job titles and descriptions, we measured the "importance" of each word to the final salary prediction.
 
-## 🛠️ Installation & Usage
+## Installation & Usage
 
 1. **Clone the repo:**
    ```bash
@@ -44,5 +44,5 @@ We implemented a perturbation-based explanation method. By systematically droppi
    ```
 3. **Data:** Download the Adzuna dataset (Train_rev1) and ensure it is in the project directory.
 
-## 📜 Credits
+##  Credits
 This project is based on a seminar from the Yandex Data School NLP course, originally developed by [Oleg Vasilev](https://github.com/Omrigan/).
